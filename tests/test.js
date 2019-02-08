@@ -1,11 +1,21 @@
 'use strict'
 
-const mO = require('../manipula').object
+const mO = require('..').object
+const mA = require('..').array
 const assert = require('assert')
 
 const disp = (txt, res) => {
   console.log(`${txt} ... Ok\n`)
 }
+
+const arr = [
+  {b: 23230},
+  {a: 'a1', b: 23231},
+  {a: 'a2', b: 23232},
+  {a: 'a2', b: 23232},
+  {a: 'a3', b: 23233},
+  {a: 'a4', b: 23234}
+]
 
 const src = {
   a: {
@@ -60,23 +70,23 @@ const bSrc = {
 }
 
 // get methods
-disp('mO.get.key path: string', assert.deepStrictEqual(
-  mO.get.key(src, 'a.b'),
+disp('mO.get path: string', assert.deepStrictEqual(
+  mO.get(src, 'a.b'),
   bSrc)
 )
-disp('mO.get.key path: array', assert.deepStrictEqual(
-  mO.get.key(src, ['a', 'b']),
+disp('mO.get path: array', assert.deepStrictEqual(
+  mO.get(src, ['a', 'b']),
   bSrc)
 )
-disp('mO.get.key defaultValue', assert.ok(mO.get.key(src, 'a.b1', 'defaultValue') === 'defaultValue'))
+disp('mO.get defaultValue', assert.ok(mO.get(src, 'a.b1', 'defaultValue') === 'defaultValue'))
 
 // concat methods
-disp('mO.set.key root Merge', assert.deepStrictEqual(
-  mO.concat.key(src, 'insertedProp', bSrc),
+disp('mO.set root Merge', assert.deepStrictEqual(
+  mO.concat(src, 'insertedProp', bSrc),
   dst)
 )
-disp('mO.set.key deep Merge', assert.deepStrictEqual(
-  mO.concat.key(src, 'a.b.d.insertedProp', bSrc),
+disp('mO.set deep Merge', assert.deepStrictEqual(
+  mO.concat(src, 'a.b.d.insertedProp', bSrc),
   dst2)
 )
 
@@ -86,4 +96,40 @@ disp('mO.reassemble', assert.deepStrictEqual(
   {arr: [1, 2, 3], e: '234'}
 ))
 
-console.dir(mO.reassemble(src, ['a.b.c->arr', 'a.b.d.e']), {depth: 10})
+// arrays
+//  groupby
+disp('mA.groupby', assert.deepStrictEqual(
+  mA.groupby(arr, 'a'),
+  { a1: [ { a: 'a1', b: 23231 } ],
+    a2: [ { a: 'a2', b: 23232 }, { a: 'a2', b: 23232 } ],
+    a3: [ { a: 'a3', b: 23233 } ],
+    a4: [ { a: 'a4', b: 23234 } ]
+  }
+))
+disp('mA.groupby with def prop', assert.deepStrictEqual(
+  mA.groupby(arr, 'a', 'def'),
+  { def: [ { b: 23230 } ],
+    a1: [ { a: 'a1', b: 23231 } ],
+    a2: [ { a: 'a2', b: 23232 }, { a: 'a2', b: 23232 } ],
+    a3: [ { a: 'a3', b: 23233 } ],
+    a4: [ { a: 'a4', b: 23234 } ]
+  }
+))
+//  indexby
+disp('mA.indexby', assert.deepStrictEqual(
+  mA.indexby(arr, 'a'),
+  { a1: { a: 'a1', b: 23231 },
+    a2: { a: 'a2', b: 23232 },
+    a3: { a: 'a3', b: 23233 },
+    a4: { a: 'a4', b: 23234 }
+  }
+))
+disp('mA.indexby with def prop', assert.deepStrictEqual(
+  mA.indexby(arr, 'a', 'def'),
+  { def: [ { b: 23230 } ],
+    a1: { a: 'a1', b: 23231 },
+    a2: { a: 'a2', b: 23232 },
+    a3: { a: 'a3', b: 23233 },
+    a4: { a: 'a4', b: 23234 }
+  }
+))
