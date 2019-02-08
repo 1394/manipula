@@ -1,6 +1,6 @@
 {
   "name": "@dmitri.leto/manipula",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "small tools for manipulating objects",
   "main": "index.js",
   "scripts": {

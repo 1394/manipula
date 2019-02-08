@@ -107,7 +107,7 @@ disp('mA.groupby', assert.deepStrictEqual(
   }
 ))
 disp('mA.groupby with def prop', assert.deepStrictEqual(
-  mA.groupby(arr, 'a', 'def'),
+  mA.groupby(arr, 'a', {defProp: 'def'}),
   { def: [ { b: 23230 } ],
     a1: [ { a: 'a1', b: 23231 } ],
     a2: [ { a: 'a2', b: 23232 }, { a: 'a2', b: 23232 } ],
@@ -125,7 +125,7 @@ disp('mA.indexby', assert.deepStrictEqual(
   }
 ))
 disp('mA.indexby with def prop', assert.deepStrictEqual(
-  mA.indexby(arr, 'a', 'def'),
+  mA.indexby(arr, 'a', {emptyProp: 'def'}),
   { def: [ { b: 23230 } ],
     a1: { a: 'a1', b: 23231 },
     a2: { a: 'a2', b: 23232 },
