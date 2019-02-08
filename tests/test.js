@@ -17,6 +17,14 @@ const arr = [
   {a: 'a4', b: 23234}
 ]
 
+const arrObj = arr.map(el => {
+  return {
+    get (key) {
+      return el[key]
+    }
+  }
+})
+
 const src = {
   a: {
     b: {

@@ -17,18 +17,15 @@ const ArrayManipula = {
     }
     let acc = {}
     arr.forEach(el => {
-      let prop = el[property] || opts.defProp
+      let prop
+      if (typeof opts.getValue === 'function') {
+        prop = opts.getValue(el, property)
+      } else {
+        prop = el[property] || opts.defProp
+      }
       if (prop) {
         acc[prop] = acc[prop] || []
-        if (typeof opts.getValue === 'function') {
-          try {
-            acc[prop].push(opts.getValue(el, prop))
-          } catch (ex) {
-            console.error('groupby getValue error :', ex)
-          }
-        } else {
-          acc[prop].push(el)
-        }
+        acc[prop].push(el)
       }
     })
     return acc
@@ -49,17 +46,14 @@ const ArrayManipula = {
     }
     let acc = {}
     arr.forEach(el => {
-      let prop = el[property]
+      let prop
+      if (typeof opts.getValue === 'function') {
+        prop = opts.getValue(el, property)
+      } else {
+        prop = el[property]
+      }
       if (prop) {
-        if (typeof opts.getValue === 'function') {
-          try {
-            acc[prop] = opts.getValue(el, prop)
-          } catch (ex) {
-            console.error('indexby getValue error :', ex)
-          }
-        } else {
-          acc[prop] = el
-        }
+        acc[prop] = el
       } else {
         if (opts.emptyProp) {
           acc[opts.emptyProp] = acc[opts.emptyProp] || []
