@@ -1,5 +1,5 @@
-small tools for manipulating objects
+#### small tools for manipulating objects
 
-for methods see self-documented sources
+[api:] (https://1394.github.io/manipula/)
 
-install: npm install @dmitri.leto/manipula
+**install:** npm install @dmitri.leto/manipula
