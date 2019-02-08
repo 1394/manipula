@@ -1,4 +1,4 @@
-### small tools for manipulating objects
+_small tools for manipulating objects_
 
 docs: https://1394.github.io/manipula/
 
