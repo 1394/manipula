@@ -10,6 +10,10 @@
     "object",
     "manipulate"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1394/manipula"
+  },
   "author": "dmitri.leto",
   "licenses": [
     {
