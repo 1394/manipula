@@ -1,0 +1,21 @@
+{
+  "name": "@dmitri.leto/manipula",
+  "version": "1.0.0",
+  "description": "small tools for manipulating objects",
+  "main": "manipula.js",
+  "scripts": {
+    "test": "node tests/test.js"
+  },
+  "keywords": [
+    "object",
+    "manipulate"
+  ],
+  "author": "dmitri.leto",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/brentertz/scapegoat/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {}
+}
