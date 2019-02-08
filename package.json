@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node tests/test.js",
-    "build-docs": "npx jsdoc -c jsdoc.conf.js"
+    "build-docs": "rm -rf docs && npx jsdoc -c jsdoc.conf.js"
   },
   "keywords": [
     "object",

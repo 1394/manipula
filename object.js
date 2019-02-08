@@ -7,9 +7,9 @@ const ObjectManupula = {
   /**
    * get prop by path
    * @memberof ObjectManupula
-   * @param obj {Object} source object
-   * @param path {String|Array} path, for example 'a.b.c.d'
-   * @returns prop {Any} property by path
+   * @param {Object} obj source object
+   * @param {String|Array} path path, for example 'a.b.c.d'
+   * @returns {Any} property by path
    * @example obj = {a: {b: {c: {d: 42}}}}, get(obj, 'a.b.c.d') will return 42
    */
   get: (obj, path, defValue) => {
@@ -28,9 +28,9 @@ const ObjectManupula = {
   /**
    * return reassembled object with keys when key can be reassigned from any source level to any destination level
    * @memberof ObjectManupula
-   * @param obj {Object} source object
-   * @param keys {String|Array} path, for example 'a.b.c.d', for reassign prop path must be in format 'oldPropPath->newPropPath'
-   * @returns object
+   * @param {Object} obj source object
+   * @param {String|Array} keys path, for example 'a.b.c.d', for reassign prop path must be in format 'oldPropPath->newPropPath'
+   * @returns {Object}
    * @example src = {a: {b: {c: {d: 42}}}}, obj(src, ['a.b->b','a.b.c->c']) will return {b: {c: {d: 42}}, c: {d: 42}}
    */
   reassemble: (obj, paths) => paths.reduce((acc, path) => {
@@ -42,6 +42,9 @@ const ObjectManupula = {
     }
     return acc
   }, {}),
+  /**
+   * @private
+   */
   _set: ({src, key, val, copy}) => {
     let obj = copy ? Object.assign({}, src) : src
     if (!Array.isArray(key)) {
@@ -69,9 +72,9 @@ const ObjectManupula = {
   /**
    * set property value in object by path
    * @memberof ObjectManupula
-   * @param src {Object} source object
-   * @param key {String} path
-   * @param val {Any} value
+   * @param {Object} src source object
+   * @param {String} key path
+   * @param {Any} val value
    * @returns modified source object
    */
   set: (src, key, val) => {
@@ -81,9 +84,9 @@ const ObjectManupula = {
    * immutable!
    * return copied object where set property value in object by path
    * @memberof ObjectManupula
-   * @param src {Object} source object
-   * @param key {String} path
-   * @param val {Any} value
+   * @param {Object} src source object
+   * @param {String} key path
+   * @param {Any} val value
    * @returns copy of modified source object
    */
   concat: (src, key, val) => {

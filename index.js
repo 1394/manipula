@@ -4,10 +4,16 @@
  */
 'use strict'
 /**
- * @module
+ * @namespace Manipula
  */
 const Manipula = {
+  /**
+   * @property object
+   */
   object: require('./object'),
+  /**
+   * @property array
+   */
   array: require('./array')
 }
 

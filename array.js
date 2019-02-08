@@ -5,9 +5,9 @@ const ArrayManipula = {
   /**
    * group elements of array by property
    * @memberof ArrayManipula
-   * @param arr {Array} source array of objects
-   * @param property {String} property for grouping
-   * @param defProp {String} optional, if value of property empty will group by defProp
+   * @param {Array} arr source array of objects
+   * @param {String} property property for grouping
+   * @param {String} [defProp] if value by property empty will group by defProp
    */
   groupby: (arr, property, defProp) => {
     if (!Array.isArray(arr)) {
@@ -26,9 +26,10 @@ const ArrayManipula = {
   /**
    * build index on array elements by property
    * @memberof ArrayManipula
-   * @param arr {Array} source array of objects
-   * @param property {String} property for index
-   * @param emptyProp {String} optional, if value of property empty will group by emptyProp
+   * @function
+   * @param {Array} arr source array of objects
+   * @param {String} property property for index
+   * @param {String} [emptyProp] if value by property empty will group by emptyProp
    */
   indexby: (arr, property, emptyProp) => {
     if (!Array.isArray(arr)) {
