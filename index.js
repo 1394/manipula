@@ -2,7 +2,7 @@
  * @fileOverview small tools for manipulating objects
  * @author Dmitri Letakhovski
  */
-'use strict'
+'use strict';
 /**
  * @namespace Manipula
  */
@@ -14,7 +14,7 @@ const Manipula = {
   /**
    * @property array
    */
-  array: require('./array')
-}
+  array: require('./array'),
+};
 
-module.exports = Manipula
+module.exports = Manipula;
