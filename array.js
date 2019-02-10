@@ -8,27 +8,28 @@ const ArrayManipula = {
    * @param {Array} arr source array of objects
    * @param {String} property property for grouping
    * @param {Object} [opts] options
-   * @param {String} opts.defProp if value by property empty will group by defProp
-   * @param {Function} opts.getValue function for extract value from element of array: function (el, property) { ...;return value }
+   * @param {String} opts.defProp group by defProp if no property
+   * @param {Function} opts.getValue extract function -> (el, property) => { }
+   * @return {Object}
    */
   groupby: (arr, property, opts = {}) => {
     if (!Array.isArray(arr)) {
-      throw new Error(`groupby arr must be Array`)
+      throw new Error(`groupby arr must be Array`);
     }
-    let acc = {}
-    arr.forEach(el => {
-      let prop
+    const acc = {};
+    arr.forEach((el) => {
+      let prop;
       if (typeof opts.getValue === 'function') {
-        prop = opts.getValue(el, property)
+        prop = opts.getValue(el, property);
       } else {
-        prop = el[property] || opts.defProp
+        prop = el[property] || opts.defProp;
       }
       if (prop) {
-        acc[prop] = acc[prop] || []
-        acc[prop].push(el)
+        acc[prop] = acc[prop] || [];
+        acc[prop].push(el);
       }
-    })
-    return acc
+    });
+    return acc;
   },
   /**
    * build index on array elements by property
@@ -37,32 +38,33 @@ const ArrayManipula = {
    * @param {Array} arr source array of objects
    * @param {String} property property for index
    * @param {Object} [opts] options
-   * @param {String} opts.emptyProp if value by property empty will group by emptyProp
-   * @param {Function} opts.getValue function for extract value from element of array: function (el, property) { ...;return value }
+   * @param {String} opts.emptyProp group by emptyProp if no property
+   * @param {Function} opts.getValue extract function -> (el, property) => { }
+   * @return {Object}
    */
   indexby: (arr, property, opts = {}) => {
     if (!Array.isArray(arr)) {
-      throw new Error(`groupby arr must be Array`)
+      throw new Error(`groupby arr must be Array`);
     }
-    let acc = {}
-    arr.forEach(el => {
-      let prop
+    const acc = {};
+    arr.forEach((el) => {
+      let prop;
       if (typeof opts.getValue === 'function') {
-        prop = opts.getValue(el, property)
+        prop = opts.getValue(el, property);
       } else {
-        prop = el[property]
+        prop = el[property];
       }
       if (prop) {
-        acc[prop] = el
+        acc[prop] = el;
       } else {
         if (opts.emptyProp) {
-          acc[opts.emptyProp] = acc[opts.emptyProp] || []
-          acc[opts.emptyProp].push(el)
+          acc[opts.emptyProp] = acc[opts.emptyProp] || [];
+          acc[opts.emptyProp].push(el);
         }
       }
-    })
-    return acc
-  }
-}
+    });
+    return acc;
+  },
+};
 
-module.exports = ArrayManipula
+module.exports = ArrayManipula;

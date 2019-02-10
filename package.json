@@ -25,6 +25,8 @@
   ],
   "dependencies": {},
   "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-google": "^0.12.0",
     "jsdoc": "^3.5.5"
   }
 }
