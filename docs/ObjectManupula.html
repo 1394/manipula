@@ -109,7 +109,7 @@
     
 
     
-    <h4 class="name" id=".concat"><span class="type-signature">(static) </span>concat<span class="signature">(src, key, val)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".concat"><span class="type-signature">(static) </span>concat<span class="signature">(src, key, val)</span><span class="type-signature"> &rarr; {Object}</span></h4>
     
 
     
@@ -260,7 +260,7 @@ return copied object where set property value in object by path</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="object.js.html">object.js</a>, <a href="object.js.html#line92">line 92</a>
+        <a href="object.js.html">object.js</a>, <a href="object.js.html#line102">line 102</a>
     </li></ul></dd>
     
 
@@ -292,6 +292,18 @@ return copied object where set property value in object by path</p>
 
 
 
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
     
 
 
@@ -304,7 +316,7 @@ return copied object where set property value in object by path</p>
     
 
     
-    <h4 class="name" id=".get"><span class="type-signature">(static) </span>get<span class="signature">(obj, path)</span><span class="type-signature"> &rarr; {Any}</span></h4>
+    <h4 class="name" id=".get"><span class="type-signature">(static) </span>get<span class="signature">(obj, path, defValue)</span><span class="type-signature"> &rarr; {Any}</span></h4>
     
 
     
@@ -396,6 +408,29 @@ return copied object where set property value in object by path</p>
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>defValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>default value</p></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -433,7 +468,7 @@ return copied object where set property value in object by path</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="object.js.html">object.js</a>, <a href="object.js.html#line15">line 15</a>
+        <a href="object.js.html">object.js</a>, <a href="object.js.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -494,17 +529,21 @@ return copied object where set property value in object by path</p>
     
 
     
-    <h4 class="name" id=".reassemble"><span class="type-signature">(static) </span>reassemble<span class="signature">(obj, keys)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id=".reassemble"><span class="type-signature">(static) </span>reassemble<span class="signature">(obj, paths)</span><span class="type-signature"> &rarr; {Object}</span></h4>
     
 
     
-    <p class="summary"><p>return reassembled object with keys when key can be reassigned from any source level to any destination level</p>.</p>
+    <p class="summary"><p>return reassembled object with keys
+when key can be reassigned from any source level
+to any destination level</p>.</p>
     
 
 
 
 <div class="description">
-    <p>return reassembled object with keys when key can be reassigned from any source level to any destination level</p>
+    <p>return reassembled object with keys
+when key can be reassigned from any source level
+to any destination level</p>
 </div>
 
 
@@ -563,15 +602,12 @@ return copied object where set property value in object by path</p>
 
         <tr>
             
-                <td class="name"><code>keys</code></td>
+                <td class="name"><code>paths</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
-|
-
 <span class="param-type">Array</span>
 
 
@@ -582,7 +618,7 @@ return copied object where set property value in object by path</p>
 
             
 
-            <td class="description last"><p>path, for example 'a.b.c.d', for reassign prop path must be in format 'oldPropPath-&gt;newPropPath'</p></td>
+            <td class="description last"><p>path, for reassign prop path must be in format 'oldPropPath-&gt;newPropPath'</p></td>
         </tr>
 
     
@@ -623,7 +659,7 @@ return copied object where set property value in object by path</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="object.js.html">object.js</a>, <a href="object.js.html#line36">line 36</a>
+        <a href="object.js.html">object.js</a>, <a href="object.js.html#line39">line 39</a>
     </li></ul></dd>
     
 
@@ -680,7 +716,7 @@ return copied object where set property value in object by path</p>
     
 
     
-    <h4 class="name" id=".set"><span class="type-signature">(static) </span>set<span class="signature">(src, key, val)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".set"><span class="type-signature">(static) </span>set<span class="signature">(src, key, val)</span><span class="type-signature"> &rarr; {Object}</span></h4>
     
 
     
@@ -829,7 +865,7 @@ return copied object where set property value in object by path</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="object.js.html">object.js</a>, <a href="object.js.html#line80">line 80</a>
+        <a href="object.js.html">object.js</a>, <a href="object.js.html#line90">line 90</a>
     </li></ul></dd>
     
 
@@ -861,6 +897,18 @@ return copied object where set property value in object by path</p>
 
 
 
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
     
 
 
@@ -889,7 +937,7 @@ return copied object where set property value in object by path</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Feb 09 2019 02:51:18 GMT+0300 (Moscow Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Feb 10 2019 15:56:06 GMT+0300 (Moscow Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
