@@ -1,3 +1,6 @@
+/**
+ * source: https://davidwalsh.name/javascript-deep-merge
+ */
 /* eslint-disable require-jsdoc */
 function isMergeableObject(val) {
   const nonNullObject = val && typeof val === 'object';
